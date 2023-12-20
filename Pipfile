@@ -1,0 +1,39 @@
+[[source]]
+url              = "https://pypi.org/simple"
+verify_ssl       = true
+name             = "pypi"
+
+[[source]]
+url              = "https://aws:${CODEARTIFACT_AUTH_TOKEN}@curalate-ml-492572841545.d.codeartifact.us-east-1.amazonaws.com/pypi/machine-learning/simple/"
+verify_ssl       = true
+name             = "curalate-prod"
+
+[packages]
+# aws
+marshmallow-enum  = "==1.5.1"
+PyYAML            = "==6.0.1"
+boto3             = {version = "==1.29.4", index = "curalate-prod"}
+botocore          = {version = "==1.32.4", index = "curalate-prod"}
+awscliv2          = "==2.2.0"
+
+# flytekit
+flytekit         = "==1.10.0"
+flytekitplugins-deck-standard = "==1.10.0"
+plotly-express   = "==0.4.1"
+
+# data
+hashable-df      = "==0.0.7"
+numpy            = "==1.23.5"
+s3fs             = "==2023.12.1"
+tqdm             = "==4.66.1"
+tenacity         = "==8.2.3"
+
+[dev-packages]
+pytest           = "==7.4.0"
+black            = "==23.7.0"
+flake8           = "==6.1.0"
+ipykernel        = "==6.25.1"
+jupyterlab       = "==4.0.4"
+
+[requires]
+python_version   = "3.11"

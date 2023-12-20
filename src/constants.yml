@@ -1,0 +1,14 @@
+#
+# Use this file to avoid having to write a large amount of constants in your code.
+# Docker container images, sagemaker roles, and default values, for example, are unlikely to change run to run,
+# so they can be defined here. Values from this file can be read using:
+# from src.config import constants
+#
+
+sm_role: &sm_role arn:aws:iam::492572841545:role/service-role/AmazonSageMaker-ExecutionRole-20210512T115126
+
+example:
+  message: "This is an example constant"
+
+reporting:
+  experiment_tracker: s3://bv-ml-ops/pipelines/auto-decisions/reporting/experiment_results.csv

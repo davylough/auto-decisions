@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+if [[ $@ == *'--remote'* ]] ; then
+    IFS=$' ' CMD=($(make runcmd | tail -n 1))
+	TMPFILE=$(mktemp)
+	AWS_PROFILE=ml-platform-curalate-prod AWS_REGION=us-east-1 ${CMD[@]} "$@" | tee $TMPFILE
+	URL=$(grep -o 'http\S*' $TMPFILE)
+	rm $TMPFILE
+	open $URL
+else
+    CMD=(pyflyte run)
+	AWS_PROFILE=ml-platform-curalate-prod AWS_REGION=us-east-1 ${CMD[@]} "$@"
+fi
