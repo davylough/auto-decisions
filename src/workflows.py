@@ -167,7 +167,7 @@ def my_wf() -> str:
     This is simply an example workflow to get you started with flyte...
     You can erase this if you don't need it.
     """
-    run_package
+    res = run_package
     return "done"
 
 
