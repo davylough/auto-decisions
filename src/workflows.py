@@ -4,7 +4,7 @@ from unittest import result
 import pandas as pd
 from flytekit import workflow
 
-from src.tasks.example import say_hello
+from src.cms_auto_approval.run import run_package
 from src.tasks.reporting import experiment_tracker_file, track_experiment_results
 from src.types import CachedDataFrame
 
@@ -167,7 +167,7 @@ def my_wf() -> str:
     This is simply an example workflow to get you started with flyte...
     You can erase this if you don't need it.
     """
-    res = say_hello()
+    res = run_package
     return res
 
 
