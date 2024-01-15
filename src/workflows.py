@@ -168,6 +168,7 @@ def my_wf():
     You can erase this if you don't need it.
     """
     res = run_package()
+    print("yeet2")
     return res
 
 
