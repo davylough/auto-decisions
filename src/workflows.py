@@ -168,8 +168,8 @@ def my_wf():
     You can erase this if you don't need it.
     """
     res = run_package()
-    res = "yeet2"
-    #return res
+    #res = "yeet2"
+    return res
  
 
 if __name__ == "__main__":
