@@ -9,11 +9,10 @@ import os
 @task
 def run_package():
     print("yeet1")
-    print(os.listdir('auto-decisions/src'))
     
-    #df = pd.read_csv(csv_path)
-    #print(df.head)
-    #return df.head()
+    df = pd.read_csv('auto-decisions/src/data/01_raw/small.csv')
+    print(df.head)
+    return df.head()
 
 
 if __name__ == "__main__":
