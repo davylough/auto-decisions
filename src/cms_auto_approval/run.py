@@ -10,6 +10,7 @@ def run_package():
     print("yeet1")
     #df = pd.read_csv('~/data/01_raw/small.csv')
     cwd = os.getcwd()
+    print(os.getcwd())
     #return df.head()
     return cwd
 

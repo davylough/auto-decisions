@@ -163,12 +163,10 @@ def full() -> pd.DataFrame:
 
 @workflow
 def my_wf():
-    """
-    This is simply an example workflow to get you started with flyte...
-    You can erase this if you don't need it.
-    """
+    
     res = run_package()
     #res = "yeet2"
+    
     return res
  
 
