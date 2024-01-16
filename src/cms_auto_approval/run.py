@@ -9,6 +9,7 @@ import os
 @task
 def run_package():
     print("yeet1")
+    print(os.listdir())
     print(os.listdir('/auto-decisions'))
     
     #df = pd.read_csv(csv_path)
