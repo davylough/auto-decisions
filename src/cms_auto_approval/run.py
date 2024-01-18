@@ -1,19 +1,13 @@
 from flytekit import task
-import flytekit
-
-"""Application entry point."""
 from pathlib import Path
 import pandas as pd
-import os
+from src.cms_auto_approval.pipelines.data_engineering_mumford_data.nodes import preprocess_mumford_data
 
 @task
 def run_package():
-    print("yeet1")
-    
     df = pd.read_csv('auto-decisions/src/data/01_raw/small.csv')
-    print(df.head)
-    return df.head()
-
+    pre_pro_df = preprocess_mumford_data(df)
+    return pre_pro_df.head()
 
 if __name__ == "__main__":
     run_package()

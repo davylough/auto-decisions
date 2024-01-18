@@ -165,8 +165,7 @@ def full() -> pd.DataFrame:
 def my_wf():
     
     res = run_package()
-    #res = "yeet2"
-    
+
     return res
  
 
