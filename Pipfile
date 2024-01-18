@@ -34,7 +34,7 @@ black            = "==23.7.0"
 flake8           = "==6.1.0"
 ipykernel        = "==6.25.1"
 jupyterlab       = "==4.0.4"
-# scikit-learn     = "*"
+scikit-learn     = "*"
 
 [requires]
 python_version   = "3.11"
