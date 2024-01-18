@@ -35,7 +35,6 @@ flake8           = "==6.1.0"
 ipykernel        = "==6.25.1"
 jupyterlab       = "==4.0.4"
 # scikit-learn     = "*"
-sklearn          = "*"
 
 [requires]
 python_version   = "3.11"
