@@ -197,6 +197,7 @@ def train_model(df: pd.DataFrame):
     model.fit(x_train,y_train)
 
     promotion_outcome, promotion_message = promotion_check(x_test, y_test, model)
+    print(promotion_message)
 
     if promotion_outcome == False:
         log.info('Data Science - PROMOTION FAILED: Generated model does not meet promotion standards: ' + promotion_message)
