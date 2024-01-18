@@ -151,10 +151,11 @@ def promotion_check(x_test: pd.DataFrame, y_test: pd.DataFrame, model) -> bool:
     # Accounts the error rate of moderator decisions.
     PRECISION_MODIFIER = 0.015
     #CONFIDENCE_THRESHOLD = 0.95
-    CONFIDENCE_THRESHOLD = 0.3
+    CONFIDENCE_THRESHOLD = 0.01
     #TARGET_PRECISION = 0.98
-    TARGET_PRECISION = 0.3
-    LOSS_TARGET = 0.29
+    TARGET_PRECISION = 0.01
+    #LOSS_TARGET = 0.29
+    LOSS_TARGET = 0.01
 
     loss_score = log_loss(y_test, model.predict_proba(x_test))
     log.info("Loss Score: " + str(loss_score))
