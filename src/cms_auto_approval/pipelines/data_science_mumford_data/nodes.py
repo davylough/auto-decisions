@@ -4,11 +4,12 @@ import pandas as pd
 import numpy as np
 import re
 import matplotlib.pyplot as plt
-from sklearn.metrics import classification_report
-from sklearn.model_selection import GroupShuffleSplit
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.metrics import log_loss
-from sklearn.metrics import precision_score
+import scikit-learn
+#from sklearn.metrics import classification_report
+#from sklearn.model_selection import GroupShuffleSplit
+#from sklearn.ensemble import GradientBoostingClassifier
+#from sklearn.metrics import log_loss
+#from sklearn.metrics import precision_score
 import logging
 log = logging.getLogger(__name__)
 
