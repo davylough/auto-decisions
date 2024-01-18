@@ -12,13 +12,15 @@ name             = "curalate-prod"
 # aws
 marshmallow-enum  = "==1.5.1"
 PyYAML            = "==6.0.1"
-boto3             = "==1.28.7"
+boto3             = {version = "==1.29.4", index = "curalate-prod"}
 botocore          = {version = "==1.32.4", index = "curalate-prod"}
 awscliv2          = "==2.2.0"
+
 # flytekit
 flytekit         = "==1.10.0"
 flytekitplugins-deck-standard = "==1.10.0"
 plotly-express   = "==0.4.1"
+
 # data
 hashable-df      = "==0.0.7"
 numpy            = "==1.23.5"
