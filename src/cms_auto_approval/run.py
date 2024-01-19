@@ -22,7 +22,8 @@ def run_package():
     s3_resource = boto3.resource("s3")
     initial_type = [('float_input', FloatTensorType((1, 14)))]
     onnx_model = convert_sklearn(model, initial_types=initial_type)
-    s3_resource.Object("bv-ml-ops","pipelines/auto-decisions/model.onnx").put(Body=onnx_model)
+    onnx_model_ser = onx.SerializeToString()
+    s3_resource.Object("bv-ml-ops","pipelines/auto-decisions/model.onnx").put(Body=onnx_model_ser)
 
     return model
 
