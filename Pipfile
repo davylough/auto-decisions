@@ -16,7 +16,9 @@ boto3             = {version = "==1.29.4", index = "curalate-prod"}
 botocore          = {version = "==1.32.4", index = "curalate-prod"}
 awscliv2          = "==2.2.0"
 scikit-learn      = "*"
-skl2onnx          = "*"
+onnx              = "1.10.1"
+skl2onnx          = "1.9.1"
+onnxruntime       = "1.8.1"
 
 # flytekit
 flytekit         = "==1.10.0"
