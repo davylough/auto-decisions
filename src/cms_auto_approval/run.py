@@ -2,6 +2,7 @@ from flytekit import task
 import boto3
 from pathlib import Path
 import pandas as pd
+from skl2onnx import convert_sklearn
 from src.cms_auto_approval.pipelines.data_engineering_mumford_data.nodes import preprocess_mumford_data
 from src.cms_auto_approval.pipelines.data_science_mumford_data.nodes import train_model
 
@@ -13,7 +14,9 @@ def run_package():
 
     pre_pro_df = preprocess_mumford_data(df)
     model = train_model(pre_pro_df)
-    s3.put_object(Body= model, Bucket= "bv-ml-ops", Key= "pipelines/auto-decisions/model.onnx")
+    onnx_model = convert_sklearn(model)
+
+    s3.put_object(Body= onnx_model, Bucket= "bv-ml-ops", Key= "pipelines/auto-decisions/model.onnx")
     return model
 
 

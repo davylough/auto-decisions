@@ -15,7 +15,8 @@ PyYAML            = "==6.0.1"
 boto3             = {version = "==1.29.4", index = "curalate-prod"}
 botocore          = {version = "==1.32.4", index = "curalate-prod"}
 awscliv2          = "==2.2.0"
-scikit-learn     = "*"
+scikit-learn      = "*"
+sklearn-onnx      = "*"
 
 # flytekit
 flytekit         = "==1.10.0"
