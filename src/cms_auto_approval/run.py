@@ -16,9 +16,9 @@ def run_package():
     pre_pro_df = preprocess_mumford_data(df)
     model = train_model(pre_pro_df)
     #onnx_model = convert_sklearn(model)
-    pickle = pickle.dump(model, open("auto_decisions_model.pickle.dat", "wb"))
+    pickle.dump(model, open("auto_decisions_model.pickle.dat", "wb"))
 
-    s3.put_object(Body= pickle, Bucket= "bv-ml-ops", Key= "pipelines/auto-decisions/model.onnx")
+    s3.put_object(Body= pickle.load(open("auto_decisions_model.pickle.dat", "rb")), Bucket= "bv-ml-ops", Key= "pipelines/auto-decisions/model.onnx")
     return model
 
 
