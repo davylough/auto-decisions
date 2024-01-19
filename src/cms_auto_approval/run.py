@@ -10,11 +10,10 @@ def run_package():
     s3 = boto3.client("s3")
     obj = s3.get_object(Bucket= "bv-ml-ops", Key= "pipelines/auto-decisions/200000.csv") 
     df = pd.read_csv(obj['Body'])
-    print(df.head())
 
-    #df = pd.read_csv('auto-decisions/src/data/01_raw/200000.csv')
     pre_pro_df = preprocess_mumford_data(df)
     model = train_model(pre_pro_df)
+    s3.put_object(Body= model, Bucket= "bv-ml-ops", Key= "pipelines/auto-decisions/model.onnx")
     return model
 
 
