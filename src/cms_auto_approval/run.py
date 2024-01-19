@@ -21,8 +21,9 @@ def run_package():
 
     # save model to S3
     s3_resource = boto3.resource("s3")
-    pickle_obj = pickle.dumps(model)
-    s3_resource.Object("bv-ml-ops","pipelines/auto-decisions/model.onnx").put(Body=pickle_obj)
+    #pickle_obj = pickle.dumps(model)
+    onnx_model = convert_sklearn(model)
+    s3_resource.Object("bv-ml-ops","pipelines/auto-decisions/model.onnx").put(Body=onnx_model)
 
     return model
 
