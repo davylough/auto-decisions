@@ -8,7 +8,7 @@ from src.cms_auto_approval.pipelines.data_science_mumford_data.nodes import trai
 @task
 def run_package():
     s3 = boto3.client("s3")
-    obj = s3.get_object(Bucket= "bv-ml-ops/pipelines/auto-decisions", Key= "200000.csv") 
+    obj = s3.get_object(Bucket= "bv-ml-ops", Key= "pipelines/auto-decisions/200000.csv") 
     df = pd.read_csv(obj['Body'])
     print(df.head())
 
