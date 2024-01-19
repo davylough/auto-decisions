@@ -1,9 +1,8 @@
 from flytekit import task
 import boto3
 from skl2onnx import convert_sklearn
-from pathlib import Path
+from skl2onnx.common.data_types import FloatTensorType
 import pandas as pd
-import pickle
 from src.cms_auto_approval.pipelines.data_engineering_mumford_data.nodes import preprocess_mumford_data
 from src.cms_auto_approval.pipelines.data_science_mumford_data.nodes import train_model
 
@@ -21,8 +20,8 @@ def run_package():
 
     # save model to S3
     s3_resource = boto3.resource("s3")
-    #pickle_obj = pickle.dumps(model)
-    onnx_model = convert_sklearn(model)
+    initial_type = [('float_input', FloatTensorType((1, 14)))]
+    onnx_model = convert_sklearn(model, initial_types=initial_type)
     s3_resource.Object("bv-ml-ops","pipelines/auto-decisions/model.onnx").put(Body=onnx_model)
 
     return model
