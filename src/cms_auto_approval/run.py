@@ -15,11 +15,9 @@ def run_package():
     pre_pro_df = preprocess_mumford_data(df)
     model = train_model(pre_pro_df)
 
-    #pickle_buffer = io.BytesIO()
     s3_resource = boto3.resource("s3")
-    #new_df.to_pickle(pickle_buffer)
     
-    pickle_obj = pickle.dump(model, open("auto_decisions_model.pickle", "wb"))
+    pickle_obj = pickle.dumps(model)
     s3_resource.Object("bv-ml-ops","pipelines/auto-decisions/model.onnx").put(Body=pickle_obj)
     #s3.put_object(Body= loaded_model, Bucket= "bv-ml-ops", Key= "pipelines/auto-decisions/model.onnx")
     return model
